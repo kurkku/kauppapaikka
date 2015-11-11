@@ -1,6 +1,5 @@
 # kauppapaikka
 
-
 kauppapaikka is a demo web application built with AngularJS.
 
 ## Getting started
@@ -22,7 +21,7 @@ npm installs development tools -- such as test runners -- and calls [bower](http
 npm packages are installed to ````node_modules```` directory, and bower packages to ````app/bower_components````.
 
 ### Configuration
-The backend server URI can be changed by modifying [app/app.config.js] file.
+The backend server URI can be changed by modifying [app/app.config.js](https://github.com/kurkku/kauppapaikka/blob/master/app/js/app.config.js) file.
 
 ## Running the app
 The project has been preconfigured with a simple web server for local development. The server can be started with
@@ -42,18 +41,18 @@ Unit tests are written in [Jasmine](http://jasmine.github.io/) and executed with
 
 Tests can be executed with ````npm test```` (continuous testing), or with ````npm run test-single-run```` (single shot).
 
-Karma expects to find Chrome and Firefox browsers on the machine. Supported browsers can be changed in [test/karma.conf.js].
+Karma expects to find Chrome and Firefox browsers on the machine. Supported browsers can be changed in [test/karma.conf.js](https://github.com/kurkku/kauppapaikka/blob/master/test/karma.conf.js).
 
 ### E2E
 End-to-end tests are executed with [Protractor](https://angular.github.io/protractor) test framework.
 
-The tests are run against a live backend with Chrome browser.
+E2E tests are run against a live backend with Chrome browser.
 
 Running the tests:
-- Make sure you have JavaRE in Path
+- (Make sure you have JavaRE in Path)
 - Download the latest drivers for defined browser: ````npm run update-webdriver````
 - Start the local webserver: ````npm start````
-- Run the E2E tests: ````npm run protractor````
+- Run E2E tests: ````npm run protractor````
 
 ## Directory structure
 ````
