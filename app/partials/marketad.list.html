@@ -23,22 +23,26 @@
 
   <div class="row" ng-cloak>
     <!-- Body grid -->
-    <div class="marketad col-md-4 col-sm-6" ng-repeat="item in marketads | filter:searchText">
-      <div class="panel panel-default">
-        <div class="panel-body media">
-          <div class="media-left media-top">
-            <a ng-href="#/details/{{item.id}}" class="img-thumbnail">
-              <img ng-if="item.thumbnailUrl != null" class="media-object" ng-src="{{item.thumbnailUrl}}">
-              <img ng-if="item.thumbnailUrl === null" class="media-object" ng-src="img/thumbnail-placeholder.png">
-            </a>
+    <div class="marketad" ng-repeat="item in marketads | filter:searchText">
+      <div class="clearfix" ng-if="$index % 3 == 0"></div>
+      <div class="marketad col-md-4 col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-body media">
+            <div class="media-left media-top">
+              <a ng-href="#/details/{{item.id}}" class="img-thumbnail">
+                <img ng-if="item.thumbnailUrl != null" class="media-object" ng-src="{{item.thumbnailUrl}}">
+                <img ng-if="item.thumbnailUrl === null" class="media-object" ng-src="img/thumbnail-placeholder.png">
+              </a>
+            </div>
+            <div class="media-body">
+              <h3><a ng-href="#/details/{{item.id}}" id="titleLink">{{item.title}}</a></h3>
+              <p>
+                {{item.description | limitTo:80}}
+                <span ng-if="item.description.length > 80">... <a ng-href="#/details/{{item.id}}">Read more</a></span>
+              </p>
+              <p>{{item.priceCents | prettyEuro}}</p>
+            </div>
           </div>
-          <div class="media-body">
-          <h3><a ng-href="#/details/{{item.id}}" id="titleLink">{{item.title}}</a></h3>
-          <p>
-            {{item.description | limitTo:80}}
-            <span ng-if="item.description.length > 80">... <a ng-href="#/details/{{item.id}}">Read more</a></span>
-          </p>
-          <p>{{item.priceCents | prettyEuro}}</p>
         </div>
       </div>
     </div>
