@@ -1,0 +1,36 @@
+{
+  "name": "kauppapaikka",
+  "private": true,
+  "version": "1.0.0",
+  "author": "Olli Lehtinen <olli.lehtinen@iki.fi>",
+  "description": "A demo webapp",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kurkku/kauppapaikka"
+  },
+  "bugs": "https://github.com/kurkku/kauppapaikka/issues",
+  "devDependencies": {
+    "bower": "1.6.x",
+    "http-server": "0.8.x",
+    "jasmine-core": "~2.3.4",
+    "karma": "~0.13",
+    "karma-chrome-launcher": "0.2.x",
+    "karma-firefox-launcher": "0.1.x",
+    "karma-jasmine": "~0.3.5",
+    "karma-junit-reporter": "0.3.x",
+    "protractor": "2.x"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1",
+    "pretest": "npm install",
+    "test": "karma start test/karma.conf.js",
+    "test-single-run": "karma start test/karma.conf.js  --single-run",
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor e2e-tests/protractor.conf.js"
+  }
+}

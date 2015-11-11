@@ -1,0 +1,55 @@
+<div ng-include src="'partials/marketad.header.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+      <div class="jumbotron">
+        <h2>New marketad</h2>
+        <p>Fill in the required fields.</p>
+      </div>
+
+      <form id="addNewForm" class="form" role="add" name="addNewForm" novalidate ng-submit="submitMarketad();">
+        <fieldset class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" placeholder="Title" ng-model="marketad.title" required>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" placeholder="Description" rows="3" ng-model="marketad.description" required></textarea>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label for="price">Price, EUR</label> <small class="text-muted">Max 100000.00 €</small>
+          <input type="text" class="form-control" id="price" placeholder="Ask price, €" ng-model="marketad.price" required ng-pattern="/^[0-9]{1,6}([\.,][0-9]{0,2})?$/">
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="marketad.email" required>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" class="form-control" id="phone" placeholder="Enter phone number" ng-model="marketad.phone" required>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label for="imageUrl">Image URL</label> <small class="text-muted">Optional</small>
+          <input type="url" class="form-control" id="imageUrl" placeholder="Image URL" ng-model="marketad.imageUrl">
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label for="thumbnailUrl">Thumbnail image URL</label> <small class="text-muted">Optional</small>
+          <input type="url" class="form-control" id="thumbnailUrl" placeholder="Thumbnail URL" ng-model="marketad.thumbnailUrl">
+        </fieldset>
+
+        <button type="submit" id="submitNewAd" class="btn btn-primary" ng-disabled="addNewForm.$invalid || submitted">Submit</button>
+        <span id="uploadOngoing" ng-show="uploading">Uploading...</span>
+        <span id="uploadSuccess" ng-show="uploadStatus == 'ok'">Added successfully!</span>
+        <span id="uploadFailure" ng-show="uploadStatus == 'failure'">Failed to upload the ad. Server response: {{errorText}}</span>
+      </form>
+    </div>
+  </div>
+</div>
